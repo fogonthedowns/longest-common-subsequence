@@ -14,8 +14,6 @@ func lcs(a, b string) (int, string) {
 	brunes := []rune(b)
 	aLen := len(arunes)
 	bLen := len(brunes)
-	fmt.Println(aLen + 1)
-	fmt.Println(bLen + 1)
 
 	// we initialize with an empty row (alen+1)
 	// and empty column (blen+1)
@@ -49,14 +47,17 @@ func lcs(a, b string) (int, string) {
 	fmt.Println(T)
 
 	// read the substring out from the matrix
+	// reads in reverse
 	s := make([]rune, 0, T[aLen][bLen])
 	for x, y := aLen, bLen; x != 0 && y != 0; {
-		fmt.Println(x)
 		if T[x][y] == T[x-1][y] {
+			// previous row
 			x--
 		} else if T[x][y] == T[x][y-1] {
+			// previous column
 			y--
 		} else {
+			// only append on diagnal movement
 			s = append(s, arunes[x-1])
 			x--
 			y--
