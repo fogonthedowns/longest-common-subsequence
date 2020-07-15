@@ -16,6 +16,9 @@ func lcs(a, b string) (int, string) {
 	bLen := len(brunes)
 	fmt.Println(aLen + 1)
 	fmt.Println(bLen + 1)
+
+	// we initialize with an empty row (alen+1)
+	// and empty column (blen+1)
 	T := make([][]int, aLen+1)
 	for i := 0; i < aLen+1; i++ {
 		T[i] = make([]int, bLen+1)
